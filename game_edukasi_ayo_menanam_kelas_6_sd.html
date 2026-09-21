@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayo Menanam! - Menyemai Kehidupan (Kokurikuler Kelas 6)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka (fun & friendly) & Plus Jakarta Sans (clean & modern) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            earth: '#78350f',
+                            leaf: '#15803d',
+                            sun: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+            min-height: 100vh;
+            user-select: none;
+        }
+        h1, h2, h3, h4, .font-fun {
+            font-family: 'Fredoka', cursive, sans-serif;
+        }
+        .animate-bounce-short {
+            animation: bounceShort 1.2s infinite alternate;
+        }
+        @keyframes bounceShort {
+            from { transform: translateY(0); }
+            to { transform: translateY(-8px); }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e8f5e9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4ade80;
+            border-radius: 4px;
+        }
+        /* Print rules for certificate */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-certificate, #printable-certificate * {
+                visibility: visible;
+            }
+            #printable-certificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+                background: white !important;
+                box-shadow: none !important;
+                border: 8px double #15803d !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col justify-between min-h-screen">
+
+    <!-- TOP HEADER -->
+    <header class="no-print bg-white/90 backdrop-blur-md shadow-md border-b-4 border-green-500 sticky top-0 z-40 px-4 py-3">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="goToMenu()">
+                <div class="bg-green-600 text-white p-2.5 rounded-2xl shadow-md flex items-center justify-center text-xl">
+                    🌱
+                </div>
+                <div>
+                    <h1 class="text-base md:text-xl font-bold text-green-800 leading-tight font-fun">
+                        AYO MENANAM! <span class="text-xs md:text-sm font-normal text-slate-600 block sm:inline">| Menyemai Kehidupan</span>
+                    </h1>
+                    <p class="text-[11px] text-slate-500 hidden md:block">Kokurikuler Kelas 6 SD (Fase C) • Primtin Narindra</p>
+                </div>
+            </div>
+
+            <!-- Global Action Bar -->
+            <div class="flex items-center gap-2">
+                <button id="sound-toggle-btn" onclick="toggleAudio()" class="bg-amber-100 hover:bg-amber-200 text-amber-900 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition border border-amber-300 shadow-sm">
+                    <span id="sound-icon">🔊</span>
+                    <span id="sound-text" class="hidden sm:inline">Suara: ON</span>
+                </button>
+                <div id="user-pill" class="hidden bg-green-100 border border-green-300 text-green-800 px-3 py-1.5 rounded-xl text-xs font-bold items-center gap-1">
+                    👤 <span id="header-user-name">Siswa</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto w-full px-4 py-6 flex-grow flex flex-col justify-center">
+
+        <!-- SCREEN 1: LOGIN / PEMBUKA -->
+        <section id="screen-login" class="glass-card rounded-3xl p-6 md:p-10 shadow-2xl border-4 border-green-400 my-auto transition-all">
+            <div class="text-center space-y-3 mb-8">
+                <span class="inline-block bg-green-100 text-green-800 text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full border border-green-300 shadow-sm">
+                    🌱 KOKURIKULER KELAS 6 • FASE C
+                </span>
+                <h2 class="text-3xl md:text-5xl font-black text-green-900 font-fun tracking-wide">
+                    AYO MENANAM!
+                </h2>
+                <h3 class="text-lg md:text-2xl font-bold text-emerald-700 font-fun">
+                    “Menyemai Kehidupan”
+                </h3>
+                <p class="text-xs md:text-sm text-slate-600 max-w-xl mx-auto font-medium leading-relaxed">
+                    Aksi Peduli Lingkungan: <strong>“Dari Sampah Organik Menjadi Kebun Gizi Sekolah”</strong>. Belajar memilah sampah, membuat kompos, menyemai benih, merawat tanaman, & memupuk tanggung jawab!
+                </p>
+                
+                <div class="flex justify-center gap-3 text-2xl md:text-3xl py-2 animate-bounce-short">
+                    🌱 🌿 ☀️ 💧 🪴 🥬 ♻️
+                </div>
+            </div>
+
+            <!-- Identity Input Form -->
+            <form onsubmit="handleLogin(event)" class="bg-green-50/80 p-6 rounded-2xl border-2 border-green-200 max-w-lg mx-auto space-y-4 shadow-sm">
+                <div>
+                    <label class="block text-xs font-extrabold text-green-900 uppercase tracking-wider mb-1.5">
+                        👤 Nama Lengkap Siswa: <span class="text-rose-500">*</span>
+                    </label>
+                    <input type="text" id="input-name" placeholder="Ketik nama lengkapmu di sini..." required class="w-full px-4 py-3 rounded-xl border-2 border-green-300 focus:border-green-600 focus:ring-2 focus:ring-green-400 focus:outline-none text-slate-800 font-semibold text-sm bg-white shadow-inner">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-extrabold text-green-900 uppercase tracking-wider mb-1.5">
+                        🏫 Nama Sekolah / SDN: <span class="text-rose-500">*</span>
+                    </label>
+                    <input type="text" id="input-school" placeholder="Contoh: SDN Kebun Sehat 01" required class="w-full px-4 py-3 rounded-xl border-2 border-green-300 focus:border-green-600 focus:ring-2 focus:ring-green-400 focus:outline-none text-slate-800 font-semibold text-sm bg-white shadow-inner">
+                </div>
+
+                <div id="login-alert" class="hidden text-xs bg-rose-100 text-rose-800 p-3 rounded-xl border border-rose-300 font-bold text-center">
+                    Silakan isi nama terlebih dahulu ya! 🌱
+                </div>
+
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 active:scale-95 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all text-base md:text-lg flex items-center justify-center gap-2 font-fun">
+                    🚀 MULAI BELAJAR
+                </button>
+            </form>
+
+            <div class="mt-6 text-center text-xs text-slate-500 border-t border-slate-200 pt-4">
+                Dibuat oleh: <strong class="text-slate-800">Primtin Narindra</strong> • Kokurikuler IPAS & Pendidikan Pancasila (7 JP/minggu)
+            </div>
+        </section>
+
+        <!-- SCREEN 2: MAIN MENU / DASHBOARD -->
+        <section id="screen-dashboard" class="hidden space-y-6">
+            <div class="glass-card rounded-3xl p-6 shadow-xl border-4 border-green-400 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <span class="text-xs font-extrabold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300">
+                        Selamat Datang!
+                    </span>
+                    <h2 class="text-2xl md:text-3xl font-black text-green-900 font-fun mt-1">
+                        🌱 Halo, <span id="dash-user-name" class="text-emerald-600">Siswa</span>!
+                    </h2>
+                    <p class="text-xs md:text-sm text-slate-600 font-medium">
+                        Sekolah: <strong id="dash-school-name" class="text-slate-800">SDN Kebun Sehat</strong>
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 bg-amber-50 border-2 border-amber-300 px-5 py-3 rounded-2xl shadow-sm">
+                    <span class="text-3xl">⭐</span>
+                    <div>
+                        <p class="text-xs text-amber-800 font-bold">Nilai Evaluasi Terakhir</p>
+                        <p id="dash-score-display" class="text-xl font-black text-amber-900 font-fun">Belum Mengerjakan</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Menu Buttons Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Button 1: Materi -->
+                <div onclick="openMateri()" class="glass-card hover:bg-emerald-50 cursor-pointer rounded-3xl p-6 shadow-lg border-3 border-slate-200 hover:border-emerald-500 transition-all transform hover:-translate-y-1 group relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
+                            📚
+                        </div>
+                        <h3 class="font-black text-xl text-slate-800 group-hover:text-emerald-700 font-fun">MATERI BELAJAR</h3>
+                        <p class="text-slate-500 text-xs mt-2 font-medium">7 Modul Interaktif: Sampah Organik, Kebun Gizi, Menanam, Air, Sinar & Tanggung Jawab.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-emerald-600 flex items-center gap-1">
+                        <span>Buka Materi</span> ➡️
+                    </div>
+                </div>
+
+                <!-- Button 2: Evaluasi -->
+                <div onclick="openEvaluasiWithCheck()" class="glass-card hover:bg-blue-50 cursor-pointer rounded-3xl p-6 shadow-lg border-3 border-slate-200 hover:border-blue-500 transition-all transform hover:-translate-y-1 group relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
+                            🎮
+                        </div>
+                        <h3 class="font-black text-xl text-slate-800 group-hover:text-blue-700 font-fun">EVALUASI 50 SOAL</h3>
+                        <p class="text-slate-500 text-xs mt-2 font-medium">Uji pemahamanmu dengan 50 soal interaktif (Mudah, Sedang, HOTS) & pembahasan!</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-blue-600 flex items-center gap-1">
+                        <span>Mulai Ujian</span> 🚀
+                    </div>
+                </div>
+
+                <!-- Button 3: Papan Prestasi / Badges -->
+                <div onclick="openBadges()" class="glass-card hover:bg-purple-50 cursor-pointer rounded-3xl p-6 shadow-lg border-3 border-slate-200 hover:border-purple-500 transition-all transform hover:-translate-y-1 group relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
+                            🌟
+                        </div>
+                        <h3 class="font-black text-xl text-slate-800 group-hover:text-purple-700 font-fun">PAPAN PRESTASI</h3>
+                        <p class="text-slate-500 text-xs mt-2 font-medium">Kumpulkan 5 Lencana Pahlawan Kebun Gizi Sekolah atas pencapaian belajarmu.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-purple-600 flex items-center gap-1">
+                        <span>Lihat Lencana</span> 🏅
+                    </div>
+                </div>
+
+                <!-- Button 4: Sertifikat -->
+                <div onclick="openSertifikatWithCheck()" class="glass-card hover:bg-amber-50 cursor-pointer rounded-3xl p-6 shadow-lg border-3 border-slate-200 hover:border-amber-500 transition-all transform hover:-translate-y-1 group relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
+                            🏆
+                        </div>
+                        <h3 class="font-black text-xl text-slate-800 group-hover:text-amber-700 font-fun">SERTIFIKAT</h3>
+                        <p class="text-slate-500 text-xs mt-2 font-medium">Sertifikat Resmi Penghargaan Petani Cilik (Terbuka setelah Evaluasi selesai).</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-amber-600 flex items-center gap-1">
+                        <span id="cert-status-tag">Cetak Sertifikat</span> 📜
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informational Banner -->
+            <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4 flex gap-3 items-center text-xs text-blue-900 font-medium">
+                <span class="text-2xl">💡</span>
+                <p><strong>Saran Pembelajaran:</strong> Pelajari seluruh 7 Materi Belajar secara berurutan agar kamu dapat menjawab 50 Soal Evaluasi dengan nilai sempurna (100) dan meraih Predikat Sangat Baik!</p>
+            </div>
+        </section>
+
+        <!-- SCREEN 3: MATERI BELAJAR INTERAKTIF -->
+        <section id="screen-materi" class="hidden glass-card rounded-3xl p-6 md:p-8 shadow-2xl border-4 border-green-400 space-y-6">
+            <!-- Header Nav Materi -->
+            <div class="flex justify-between items-center border-b pb-4">
+                <div>
+                    <span id="materi-badge" class="text-xs font-extrabold bg-green-100 text-green-800 px-3 py-1 rounded-full border border-green-300">
+                        MATERI 1 DARI 7
+                    </span>
+                    <h2 id="materi-title" class="text-xl md:text-2xl font-black text-green-900 font-fun mt-1">
+                        Mengenal Lingkungan & Sampah Organik
+                    </h2>
+                </div>
+                <button onclick="goToMenu()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-2 rounded-xl transition">
+                    🏠 Menu Utama
+                </button>
+            </div>
+
+            <!-- Slide Content Body (Injected dynamically) -->
+            <div id="materi-content-box" class="min-h-[360px] flex flex-col justify-between space-y-4">
+                <!-- Content injected via JS -->
+            </div>
+
+            <!-- Slide Controls -->
+            <div class="flex justify-between items-center border-t pt-4">
+                <button id="btn-prev-materi" onclick="prevMateri()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2.5 px-5 rounded-xl text-xs md:text-sm flex items-center gap-1 transition">
+                    ⬅️ Sebelumnya
+                </button>
+                <div class="text-xs font-bold text-slate-500">
+                    <span id="materi-step-indicator">1 / 7</span>
+                </div>
+                <button id="btn-next-materi" onclick="nextMateri()" class="bg-green-600 hover:bg-green-700 text-white font-extrabold py-2.5 px-5 rounded-xl text-xs md:text-sm flex items-center gap-1 font-fun shadow transition">
+                    Selanjutnya ➡️
+                </button>
+            </div>
+        </section>
+
+        <!-- SCREEN 4: EVALUASI 50 SOAL -->
+        <section id="screen-evaluasi" class="hidden glass-card rounded-3xl p-6 md:p-8 shadow-2xl border-4 border-blue-400 space-y-6">
+            <!-- Evaluasi Top Bar -->
+            <div class="flex justify-between items-center border-b pb-4">
+                <div>
+                    <span id="eval-difficulty-badge" class="text-xs font-extrabold bg-blue-100 text-blue-800 px-3 py-1 rounded-full border border-blue-300">
+                        🟢 MUDAH
+                    </span>
+                    <h2 class="text-xl md:text-2xl font-black text-blue-900 font-fun mt-1">
+                        Evaluasi Kokurikuler Ayo Menanam
+                    </h2>
+                </div>
+                <button onclick="confirmExitEvaluasi()" class="text-xs bg-rose-100 hover:bg-rose-200 text-rose-800 font-bold px-3 py-2 rounded-xl transition">
+                    ❌ Keluar Evaluasi
+                </button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="space-y-1">
+                <div class="flex justify-between text-xs font-extrabold text-slate-600">
+                    <span id="eval-question-number">SOAL 1 / 50</span>
+                    <span id="eval-progress-percent">2% Selesai</span>
+                </div>
+                <div class="w-full bg-slate-200 h-3.5 rounded-full overflow-hidden p-0.5 border">
+                    <div id="eval-progress-bar" class="bg-blue-600 h-full rounded-full transition-all duration-300" style="width: 2%;"></div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="bg-blue-50/70 rounded-2xl p-5 border-2 border-blue-200 space-y-3">
+                <p id="eval-question-text" class="text-sm md:text-base font-bold text-slate-800 leading-relaxed">
+                    Loading soal...
+                </p>
+            </div>
+
+            <!-- Answer Options Grid -->
+            <div id="eval-options-container" class="grid grid-cols-1 gap-3">
+                <!-- Dynamic options generated by JS -->
+            </div>
+
+            <!-- Interactive Feedback Box -->
+            <div id="eval-feedback-box" class="hidden rounded-2xl p-4 border-2 space-y-2 text-xs md:text-sm">
+                <div id="eval-feedback-header" class="font-extrabold text-base flex items-center gap-2"></div>
+                <p id="eval-feedback-explain" class="text-slate-700 font-medium"></p>
+                <div class="pt-2 text-right">
+                    <button onclick="nextQuestion()" class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-2 px-5 rounded-xl text-xs font-fun shadow">
+                        Lanjut ke Soal Berikutnya ➡️
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 5: HASIL EVALUASI -->
+        <section id="screen-hasil" class="hidden glass-card rounded-3xl p-6 md:p-10 shadow-2xl border-4 border-amber-400 space-y-6 text-center">
+            <div class="text-4xl md:text-5xl">🏆</div>
+            <h2 class="text-2xl md:text-4xl font-black text-amber-900 font-fun">
+                HASIL EVALUASI KOKURIKULER
+            </h2>
+
+            <div class="bg-slate-50 p-6 rounded-2xl border-2 border-slate-200 max-w-lg mx-auto text-left space-y-3 text-xs md:text-sm">
+                <div class="flex justify-between border-b pb-2">
+                    <span class="text-slate-500 font-semibold">Nama Siswa:</span>
+                    <strong id="result-name" class="text-slate-800 font-bold">Budi</strong>
+                </div>
+                <div class="flex justify-between border-b pb-2">
+                    <span class="text-slate-500 font-semibold">Nama Sekolah:</span>
+                    <strong id="result-school" class="text-slate-800 font-bold">SDN Kebun Sehat</strong>
+                </div>
+                <div class="flex justify-between border-b pb-2">
+                    <span class="text-slate-500 font-semibold">Total Soal:</span>
+                    <strong class="text-slate-800 font-bold">50 Soal</strong>
+                </div>
+                <div class="flex justify-between border-b pb-2">
+                    <span class="text-slate-500 font-semibold">Jawaban Benar:</span>
+                    <strong id="result-correct" class="text-emerald-600 font-bold">45</strong>
+                </div>
+                <div class="flex justify-between border-b pb-2">
+                    <span class="text-slate-500 font-semibold">Jawaban Salah:</span>
+                    <strong id="result-wrong" class="text-rose-600 font-bold">5</strong>
+                </div>
+                <div class="flex justify-between border-b pb-2">
+                    <span class="text-slate-500 font-semibold">Nilai Akhir:</span>
+                    <strong id="result-score" class="text-amber-600 font-black text-xl font-fun">90</strong>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500 font-semibold">Predikat:</span>
+                    <strong id="result-predicate" class="text-green-700 font-black font-fun">🌟 Sangat Baik</strong>
+                </div>
+            </div>
+
+            <!-- Motivation Box -->
+            <div id="result-motivation-box" class="bg-amber-50 border border-amber-300 p-4 rounded-2xl text-xs md:text-sm font-bold text-amber-900 max-w-lg mx-auto">
+                Luar biasa! Kamu sudah memahami pentingnya menanam dan menjaga lingkungan.
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex flex-wrap justify-center gap-3 pt-2">
+                <button onclick="repeatEvaluasi()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-6 rounded-2xl text-xs md:text-sm font-fun transition flex items-center gap-1.5">
+                    🔄 ULANGI EVALUASI
+                </button>
+                <button onclick="openSertifikat()" class="bg-amber-500 hover:bg-amber-600 text-white font-extrabold py-3 px-6 rounded-2xl text-xs md:text-sm font-fun shadow-lg transition flex items-center gap-1.5">
+                    🏆 LIHAT SERTIFIKAT PENGHARGAAN
+                </button>
+            </div>
+        </section>
+
+        <!-- SCREEN 6: PAPAN PRESTASI / BADGES -->
+        <section id="screen-badges" class="hidden glass-card rounded-3xl p-6 md:p-8 shadow-2xl border-4 border-purple-400 space-y-6">
+            <div class="flex justify-between items-center border-b pb-4">
+                <div>
+                    <span class="text-xs font-extrabold bg-purple-100 text-purple-800 px-3 py-1 rounded-full border border-purple-300">
+                        PENCAPAIAN SISWA
+                    </span>
+                    <h2 class="text-xl md:text-2xl font-black text-purple-900 font-fun mt-1">
+                        🌟 Papan Prestasi Pahlawan Kebun Gizi
+                    </h2>
+                </div>
+                <button onclick="goToMenu()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-2 rounded-xl transition">
+                    🏠 Menu Utama
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="badges-grid">
+                <!-- Badge 1 -->
+                <div id="badge-card-1" class="bg-slate-100 opacity-60 p-5 rounded-2xl border-2 border-slate-300 flex items-center gap-4 transition">
+                    <div class="text-4xl bg-white p-3 rounded-2xl shadow-sm">🌱</div>
+                    <div>
+                        <h4 class="font-extrabold text-slate-800 text-sm font-fun">Sahabat Tanaman</h4>
+                        <p class="text-slate-500 text-[11px] mt-0.5">Selesaikan seluruh 7 Materi Belajar.</p>
+                        <span id="badge-status-1" class="inline-block mt-2 text-[10px] bg-slate-200 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">🔒 Terkunci</span>
+                    </div>
+                </div>
+
+                <!-- Badge 2 -->
+                <div id="badge-card-2" class="bg-slate-100 opacity-60 p-5 rounded-2xl border-2 border-slate-300 flex items-center gap-4 transition">
+                    <div class="text-4xl bg-white p-3 rounded-2xl shadow-sm">💧</div>
+                    <div>
+                        <h4 class="font-extrabold text-slate-800 text-sm font-fun">Penjaga Air</h4>
+                        <p class="text-slate-500 text-[11px] mt-0.5">Memahami pentingnya air bagi benih.</p>
+                        <span id="badge-status-2" class="inline-block mt-2 text-[10px] bg-slate-200 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">🔒 Terkunci</span>
+                    </div>
+                </div>
+
+                <!-- Badge 3 -->
+                <div id="badge-card-3" class="bg-slate-100 opacity-60 p-5 rounded-2xl border-2 border-slate-300 flex items-center gap-4 transition">
+                    <div class="text-4xl bg-white p-3 rounded-2xl shadow-sm">☀️</div>
+                    <div>
+                        <h4 class="font-extrabold text-slate-800 text-sm font-fun">Pemburu Cahaya</h4>
+                        <p class="text-slate-500 text-[11px] mt-0.5">Memahami fungsi fotosintesis & sinar.</p>
+                        <span id="badge-status-3" class="inline-block mt-2 text-[10px] bg-slate-200 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">🔒 Terkunci</span>
+                    </div>
+                </div>
+
+                <!-- Badge 4 -->
+                <div id="badge-card-4" class="bg-slate-100 opacity-60 p-5 rounded-2xl border-2 border-slate-300 flex items-center gap-4 transition">
+                    <div class="text-4xl bg-white p-3 rounded-2xl shadow-sm">♻️</div>
+                    <div>
+                        <h4 class="font-extrabold text-slate-800 text-sm font-fun">Pahlawan Sampah Organik</h4>
+                        <p class="text-slate-500 text-[11px] mt-0.5">Memahami pengolahan kompos organik.</p>
+                        <span id="badge-status-4" class="inline-block mt-2 text-[10px] bg-slate-200 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">🔒 Terkunci</span>
+                    </div>
+                </div>
+
+                <!-- Badge 5 -->
+                <div id="badge-card-5" class="bg-slate-100 opacity-60 p-5 rounded-2xl border-2 border-slate-300 flex items-center gap-4 transition">
+                    <div class="text-4xl bg-white p-3 rounded-2xl shadow-sm">🏆</div>
+                    <div>
+                        <h4 class="font-extrabold text-slate-800 text-sm font-fun">Penjaga Kebun Sekolah</h4>
+                        <p class="text-slate-500 text-[11px] mt-0.5">Selesaikan seluruh 50 Soal Evaluasi.</p>
+                        <span id="badge-status-5" class="inline-block mt-2 text-[10px] bg-slate-200 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">🔒 Terkunci</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 7: SERTIFIKAT PENGHARGAAN DIGITAL -->
+        <section id="screen-sertifikat" class="hidden space-y-6">
+            <div class="no-print flex justify-between items-center bg-white/90 p-4 rounded-2xl shadow border">
+                <button onclick="goToMenu()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-xl transition">
+                    ⬅️ Kembali ke Dashboard
+                </button>
+                <button onclick="window.print()" class="bg-amber-500 hover:bg-amber-600 text-white font-extrabold px-5 py-2 rounded-xl text-xs font-fun shadow transition flex items-center gap-1.5">
+                    🖨️ CETAK / SIMPAN PDF
+                </button>
+            </div>
+
+            <!-- Printable Certificate Document Box -->
+            <div id="printable-certificate" class="bg-white rounded-3xl p-8 md:p-12 border-[12px] border-green-700 shadow-2xl relative text-center space-y-6 my-4 overflow-hidden">
+                <!-- Decorative Corner Badges -->
+                <div class="absolute top-3 left-4 text-3xl">🌱</div>
+                <div class="absolute top-3 right-4 text-3xl">🥬</div>
+                <div class="absolute bottom-3 left-4 text-3xl">☀️</div>
+                <div class="absolute bottom-3 right-4 text-3xl">💧</div>
+
+                <!-- Inner Frame -->
+                <div class="border-2 border-dashed border-green-600 p-6 md:p-8 rounded-2xl space-y-5">
+                    <div class="text-5xl">🏆</div>
+                    
+                    <h2 class="text-3xl md:text-4xl font-black text-green-900 font-fun tracking-wider">
+                        SERTIFIKAT PENGHARGAAN
+                    </h2>
+                    
+                    <p class="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-widest">
+                        Diberikan Secara Bangga Kepada:
+                    </p>
+
+                    <div id="cert-student-name" class="text-3xl md:text-4xl font-black text-green-800 underline decoration-amber-400 font-fun py-1">
+                        [NAMA SISWA]
+                    </div>
+
+                    <p class="text-xs md:text-sm text-slate-700 max-w-xl mx-auto leading-relaxed">
+                        Telah berhasil menyelesaikan seluruh tahapan pembelajaran dan Evaluasi 50 Soal pada Game Edukasi Kokurikuler Kelas 6 (Fase C):
+                    </p>
+
+                    <div class="bg-green-50 p-3 rounded-2xl border border-green-200 max-w-lg mx-auto">
+                        <h3 class="text-base md:text-lg font-black text-green-900 font-fun">
+                            AYO MENANAM! “MENYEMAI KEHIDUPAN”
+                        </h3>
+                        <p class="text-xs text-green-700 font-bold">
+                            Tema: Aksi Peduli Lingkungan — “Dari Sampah Organik Menjadi Kebun Gizi Sekolah”
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-xl mx-auto text-xs bg-slate-50 p-4 rounded-xl border">
+                        <div>
+                            <span class="text-slate-500 block">Kelas:</span>
+                            <strong class="text-slate-800">Kelas 6 (Fase C)</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block">Sekolah:</span>
+                            <strong id="cert-school-name" class="text-slate-800">SDN Kebun Sehat</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block">Nilai Evaluasi:</span>
+                            <strong id="cert-score-val" class="text-amber-600 font-bold">100</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block">Predikat:</span>
+                            <strong id="cert-predicate-val" class="text-green-700 font-bold">🌟 Sangat Baik</strong>
+                        </div>
+                    </div>
+
+                    <!-- Signatures Section -->
+                    <div class="flex justify-between items-end pt-8 text-xs text-slate-600 border-t border-slate-200 max-w-xl mx-auto">
+                        <div class="text-left">
+                            <p id="cert-date-display">Tanggal: 21 September 2026</p>
+                            <p class="font-bold text-slate-800 mt-10">Siswa Pembelajar</p>
+                        </div>
+                        <div class="text-right">
+                            <p>Guru / Pembimbing Kokurikuler,</p>
+                            <div class="h-8"></div>
+                            <p class="font-black text-slate-900 border-b border-slate-400 inline-block font-fun">Primtin Narindra</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Closing Motivational Card -->
+            <div class="no-print bg-emerald-900 text-white p-6 rounded-3xl text-center space-y-2 shadow-xl">
+                <h3 class="text-xl font-black font-fun text-amber-300">🌱 TERIMA KASIH SUDAH BELAJAR!</h3>
+                <p class="text-xs md:text-sm text-emerald-100 max-w-xl mx-auto italic">
+                    “Menanam satu tanaman berarti menumbuhkan harapan. Menjaga lingkungan berarti menjaga kehidupan.”
+                </p>
+                <p class="text-xs font-bold text-amber-200">
+                    Ayo terus peduli, mandiri, dan bertanggung jawab terhadap lingkungan sekolah kita! 🌿
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="no-print bg-white/80 border-t border-slate-200 py-3 text-center text-xs text-slate-600">
+        <p>© Modul Kokurikuler Kelas 6 SD • Aksi Peduli Lingkungan "Kebun Gizi Sekolah" • Dibuat oleh <strong>Primtin Narindra</strong></p>
+    </footer>
+
+    <script>
+        // ==========================================
+        // AUDIO & SPEECH SYNTHESIS ENGINE
+        // ==========================================
+        let isAudioMuted = false;
+
+        function toggleAudio() {
+            isAudioMuted = !isAudioMuted;
+            document.getElementById('sound-icon').innerText = isAudioMuted ? '🔇' : '🔊';
+            document.getElementById('sound-text').innerText = isAudioMuted ? 'Suara: OFF' : 'Suara: ON';
+            if (isAudioMuted && window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+            }
+        }
+
+        function speakText(text) {
+            if (isAudioMuted) return;
+            try {
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel(); // stop previous
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'id-ID';
+                    utterance.rate = 1.0;
+                    utterance.pitch = 1.1;
+                    window.speechSynthesis.speak(utterance);
+                }
+            } catch (e) {
+                console.log("Speech synthesis error", e);
+            }
+        }
+
+        function playTone(type) {
+            if (isAudioMuted) return;
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const ctx = new AudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                const now = ctx.currentTime;
+                if (type === 'correct') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+                    osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(260, now);
+                    osc.frequency.linearRampToValueAtTime(130, now + 0.2);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.25);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                } else if (type === 'click') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(440, now);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                }
+            } catch (e) {
+                console.log("Web Audio API error", e);
+            }
+        }
+
+        // ==========================================
+        // GAME STATE MANAGEMENT (localStorage)
+        // ==========================================
+        let gameState = {
+            studentName: '',
+            schoolName: '',
+            materiCompleted: false,
+            evalScore: 0,
+            evalCorrect: 0,
+            evalCompleted: false,
+            badges: {
+                sahabat: false,
+                air: false,
+                cahaya: false,
+                sampah: false,
+                penjaga: false
+            }
+        };
+
+        function loadSavedState() {
+            const saved = localStorage.getItem('ayo_menanam_state');
+            if (saved) {
+                try {
+                    gameState = JSON.parse(saved);
+                } catch(e) {}
+            }
+        }
+
+        function saveState() {
+            localStorage.setItem('ayo_menanam_state', JSON.stringify(gameState));
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            playTone('click');
+
+            const name = document.getElementById('input-name').value.trim();
+            const school = document.getElementById('input-school').value.trim();
+
+            if (!name || !school) {
+                document.getElementById('login-alert').classList.remove('hidden');
+                speakText("Silakan isi nama dan nama sekolah terlebih dahulu ya!");
+                return;
+            }
+
+            gameState.studentName = name;
+            gameState.schoolName = school;
+            saveState();
+
+            speakText(`Selamat datang ${name} dari ${school}! Mari belajar menanam dan menjaga kebun gizi sekolah!`);
+            updateDashboardUI();
+            goToMenu();
+        }
+
+        function goToMenu() {
+            playTone('click');
+            hideAllScreens();
+            document.getElementById('screen-dashboard').classList.remove('hidden');
+            updateDashboardUI();
+        }
+
+        function hideAllScreens() {
+            const screens = ['screen-login', 'screen-dashboard', 'screen-materi', 'screen-evaluasi', 'screen-hasil', 'screen-badges', 'screen-sertifikat'];
+            screens.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
+            });
+        }
+
+        function updateDashboardUI() {
+            if (gameState.studentName) {
+                document.getElementById('header-user-name').innerText = gameState.studentName;
+                document.getElementById('user-pill').classList.remove('hidden');
+                document.getElementById('user-pill').classList.add('flex');
+
+                document.getElementById('dash-user-name').innerText = gameState.studentName;
+                document.getElementById('dash-school-name').innerText = gameState.schoolName;
+
+                if (gameState.evalCompleted) {
+                    document.getElementById('dash-score-display').innerText = `${gameState.evalScore} Poin`;
+                    document.getElementById('cert-status-tag').innerText = "Lihat Sertifikat";
+                } else {
+                    document.getElementById('dash-score-display').innerText = "Belum Mengerjakan";
+                    document.getElementById('cert-status-tag').innerText = "🔒 Terkunci";
+                }
+            } else {
+                hideAllScreens();
+                document.getElementById('screen-login').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // 3. MATERI BELAJAR INTERAKTIF (7 MODUL)
+        // ==========================================
+        let currentMateriIndex = 0;
+
+        const materiData = [
+            // MATERI 1
+            {
+                badge: "MATERI 1 DARI 7 • IPAS",
+                title: "Mengenal Lingkungan & Sampah Organik",
+                render: function() {
+                    return `
+                        <div class="space-y-4 text-xs md:text-sm text-slate-700 leading-relaxed">
+                            <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200">
+                                <strong>🌱 Apa itu Lingkungan?</strong>
+                                <p class="mt-1">Lingkungan adalah segala sesuatu di sekitar kita yang mempengaruhi kehidupan manusia, hewan, dan tumbuhan. Memelihara kebersihan lingkungan sekolah merupakan tanggung jawab bersama!</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+                                    <h4 class="font-black text-amber-900 font-fun text-sm">🍂 Sampah Organik (Dapat Terurai)</h4>
+                                    <p class="mt-1">Sampah yang berasal dari sisa makhluk hidup dan dapat terurai secara alami oleh mikroorganisme tanah menjadi pupuk kompos.</p>
+                                    <div class="mt-2 font-bold text-amber-800">Contoh: daun kering, kulit pisang, sisa sayur, sisa buah, rumput.</div>
+                                </div>
+
+                                <div class="bg-rose-50 p-4 rounded-2xl border border-rose-200">
+                                    <h4 class="font-black text-rose-900 font-fun text-sm">🛍️ Sampah Anorganik (Sulit Terurai)</h4>
+                                    <p class="mt-1">Sampah buatan manusia yang sangat sulit atau butuh ratusan tahun untuk terurai di dalam tanah.</p>
+                                    <div class="mt-2 font-bold text-rose-800">Contoh: kantong plastik, botol plastik, kaleng, kaca.</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50 p-3 rounded-2xl border border-blue-200 font-medium">
+                                <strong>💡 Manfaat Mengolah Sampah Organik:</strong> Sampah organik kantin sekolah dapat diolah menjadi <strong>kompos organik</strong> yang kaya unsur hara untuk menyuburkan tanah Kebun Gizi Sekolah!
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // MATERI 2
+            {
+                badge: "MATERI 2 DARI 7 • IPAS & PANCASILA",
+                title: "Kebun Gizi Sekolah",
+                render: function() {
+                    return `
+                        <div class="space-y-4 text-xs md:text-sm text-slate-700 leading-relaxed">
+                            <p><strong> Kebun Gizi Sekolah</strong> adalah area lahan di sekolah yang dimanfaatkan untuk menanam tanaman pangan dan sayuran sehat kaya nutrisi bagi seluruh warga sekolah.</p>
+
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+                                <div class="bg-emerald-100 p-3 rounded-2xl border border-emerald-300">
+                                    <span class="text-3xl">🥬</span>
+                                    <h4 class="font-bold text-emerald-900 mt-1">Kangkung</h4>
+                                    <p class="text-[11px] text-slate-600">Kaya zat besi & vitamin A untuk mencegah anemia.</p>
+                                </div>
+                                <div class="bg-green-100 p-3 rounded-2xl border border-green-300">
+                                    <span class="text-3xl">🌿</span>
+                                    <h4 class="font-bold text-green-900 mt-1">Bayam</h4>
+                                    <p class="text-[11px] text-slate-600">Menjaga kesehatan mata dan kekuatan tulang.</p>
+                                </div>
+                                <div class="bg-amber-100 p-3 rounded-2xl border border-amber-300">
+                                    <span class="text-3xl">🫚</span>
+                                    <h4 class="font-bold text-amber-900 mt-1">Jahe</h4>
+                                    <p class="text-[11px] text-slate-600">Tanaman rimpang pembuat minuman hangat herbal.</p>
+                                </div>
+                                <div class="bg-yellow-100 p-3 rounded-2xl border border-yellow-300">
+                                    <span class="text-3xl">🟡</span>
+                                    <h4 class="font-bold text-yellow-900 mt-1">Kunyit</h4>
+                                    <p class="text-[11px] text-slate-600">Tanaman rimpang sebagai zat pewarna alami & obat.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-100 border border-green-300 p-4 rounded-2xl text-center font-bold text-green-900">
+                                🌱 “Menanam bukan hanya menghasilkan tanaman, tetapi juga melatih tanggung jawab dan kepedulian terhadap lingkungan.”
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // MATERI 3
+            {
+                badge: "MATERI 3 DARI 7 • IPAS (AKTIVITAS INTERAKTIF)",
+                title: "Memilih Benih yang Baik",
+                render: function() {
+                    return `
+                        <div class="space-y-4 text-xs md:text-sm text-slate-700 leading-relaxed">
+                            <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200">
+                                <strong>✨ Ciri-ciri Benih Tanaman yang Baik:</strong> Sehat, padat berisi, tidak berjamur, tidak berlubang dimakan hama, dan tidak busuk.
+                            </div>
+
+                            <div class="bg-white p-4 rounded-2xl border-2 border-slate-200 space-y-3">
+                                <h4 class="font-black text-slate-800 font-fun text-center text-sm">🎮 Aktivitas Mini: Pilih Benih Sehat di Bawah Ini!</h4>
+                                
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="seed-activity-box">
+                                    <button onclick="checkSeedChoice(false, 'Benih berjamur hitam busuk tidak akan bisa bertunas!')" class="p-3 bg-slate-50 hover:bg-rose-50 border-2 border-slate-200 hover:border-rose-400 rounded-xl text-left font-semibold text-slate-700 flex items-center gap-3">
+                                        <span class="text-2xl">🦠</span>
+                                        <div>
+                                            <p class="font-bold text-rose-800">Benih Berjamur</p>
+                                            <p class="text-[11px] text-slate-500">Berwarna kehitaman dan lembek.</p>
+                                        </div>
+                                    </button>
+
+                                    <button onclick="checkSeedChoice(true, 'Hebat! Benih bersih, padat, dan segar adalah kunci tanaman tumbuh subur!')" class="p-3 bg-slate-50 hover:bg-emerald-50 border-2 border-slate-200 hover:border-emerald-400 rounded-xl text-left font-semibold text-slate-700 flex items-center gap-3">
+                                        <span class="text-2xl">✨</span>
+                                        <div>
+                                            <p class="font-bold text-emerald-800">Benih Bersih & Utuh</p>
+                                            <p class="text-[11px] text-slate-500">Kering, tidak berlubang, segar.</p>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div id="seed-feedback" class="hidden text-xs font-bold p-3 rounded-xl text-center"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // MATERI 4
+            {
+                badge: "MATERI 4 DARI 7 • IPAS",
+                title: "Cara & Langkah Menanam Benih",
+                render: function() {
+                    return `
+                        <div class="space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                            <h4 class="font-bold text-green-900">Urutan Praktik Menanam di Kebun Gizi:</h4>
+                            
+                            <ol class="space-y-2 list-decimal list-inside font-medium bg-slate-50 p-4 rounded-2xl border">
+                                <li><strong>Menyiapkan media tanam:</strong> Campuran tanah subur, pupuk kompos, dan sekam.</li>
+                                <li><strong>Membuat lubang tanam:</strong> Disesuaikan dengan jenis benih.</li>
+                                <li><strong>Memasukkan benih:</strong> Jangan ditanam terlalu dalam!</li>
+                                <li><strong>Menutup benih:</strong> Tutup tipis dengan tanah gembur.</li>
+                                <li><strong>Menyiram:</strong> Gunakan air secukupnya secara perlahan.</li>
+                                <li><strong>Penataan lokasi:</strong> Letakkan di tempat yang terkena sinar matahari.</li>
+                            </ol>
+
+                            <div class="bg-rose-50 border border-rose-200 p-3 rounded-2xl text-rose-900">
+                                <strong>⚠️ Ingat Kedalaman Tanam:</strong> Biji kecil seperti <strong>Kangkung / Bayam</strong> ditanam <em>dangkal dan ditutup tipis (0.5 - 2 cm)</em> agar tunas tidak kehabisan energi. Rimpang besar seperti <strong>Jahe / Kunyit</strong> ditanam sedikit lebih dalam sesuai ukuran rimpangnya.
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // MATERI 5
+            {
+                badge: "MATERI 5 DARI 7 • IPAS (MINI QUIZ)",
+                title: "Peran Air & Cahaya Matahari",
+                render: function() {
+                    return `
+                        <div class="space-y-4 text-xs md:text-sm text-slate-700 leading-relaxed">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div class="bg-cyan-50 p-4 rounded-2xl border border-cyan-200">
+                                    <h4 class="font-bold text-cyan-900 flex items-center gap-1">💧 Peran Air</h4>
+                                    <p class="mt-1">Air melunakkan kulit biji dan memicu sel benih untuk mulai membelah diri (berkecambah). Air yang berlebihan membuat tanah terlalu basah dan membuat akar membusuk.</p>
+                                </div>
+                                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+                                    <h4 class="font-bold text-amber-900 flex items-center gap-1">☀️ Cahaya Matahari</h4>
+                                    <p class="mt-1">Setelah tunas daun hijau muncul, cahaya matahari membantu tanaman melakukan <strong>fotosintesis</strong> (membuat makanan sendiri) agar batang tumbuh kokoh.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-2xl border-2 border-slate-200 space-y-2">
+                                <p class="font-bold text-slate-800">❓ Mini Pertanyaan: Mana yang dibutuhkan tanaman untuk tumbuh?</p>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center text-xs">
+                                    <button onclick="checkWaterChoice(false)" class="p-2.5 bg-slate-100 hover:bg-slate-200 rounded-xl font-semibold">💧 Air</button>
+                                    <button onclick="checkWaterChoice(false)" class="p-2.5 bg-slate-100 hover:bg-slate-200 rounded-xl font-semibold">☀️ Cahaya</button>
+                                    <button onclick="checkWaterChoice(false)" class="p-2.5 bg-slate-100 hover:bg-slate-200 rounded-xl font-semibold">🌱 Media Tanam</button>
+                                    <button onclick="checkWaterChoice(true)" class="p-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold">➡️ Semua Benar</button>
+                                </div>
+                                <div id="water-mini-feedback" class="hidden text-xs font-bold p-2.5 rounded-xl text-center"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // MATERI 6
+            {
+                badge: "MATERI 6 DARI 7 • IPAS & KARAKTER",
+                title: "Merawat Tanaman Kebun Sekolah",
+                render: function() {
+                    return `
+                        <div class="space-y-4 text-xs md:text-sm text-slate-700 leading-relaxed">
+                            <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200">
+                                <strong>🏡 Langkah Perawatan Rutin:</strong>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li>Menyiram pagi atau sore hari secara teratur.</li>
+                                    <li>Mencabut gulma / rumput liar di sekitar tanaman.</li>
+                                    <li>Gunakan kompos organik buatan sendiri dari sampah kantin.</li>
+                                    <li>Jangan mencabut atau merusak tanaman sembarangan.</li>
+                                </ul>
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-3 text-center text-xs">
+                                <div class="bg-pink-100 p-3 rounded-2xl border border-pink-300 font-bold text-pink-900">
+                                    ❤️ Peduli Lingkungan
+                                </div>
+                                <div class="bg-purple-100 p-3 rounded-2xl border border-purple-300 font-bold text-purple-900">
+                                    💪 Mandiri
+                                </div>
+                                <div class="bg-indigo-100 p-3 rounded-2xl border border-indigo-300 font-bold text-indigo-900">
+                                    🤝 Tanggung Jawab
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // MATERI 7
+            {
+                badge: "MATERI 7 DARI 7 • PENDIDIKAN PANCASILA",
+                title: "Tanggung Jawab & Gotong Royong",
+                render: function() {
+                    return `
+                        <div class="space-y-4 text-xs md:text-sm text-slate-700 leading-relaxed">
+                            <p>Sebagai warga sekolah yang baik dan bernalar Pancasila, kita harus menunjukkan perilaku <strong>Gotong Royong & Tanggung Jawab</strong> dalam merawat kebun bersama.</p>
+
+                            <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-2">
+                                <strong>🤝 Contoh Perilaku Tanggung Jawab:</strong>
+                                <p>• Menjalankan jadwal piket menyiram tanaman tanpa harus disuruh guru.<br>
+                                • Membuang sampah makanan ke tempat sampah organik.<br>
+                                • Menjaga dan merawat tanaman milik kelompok teman dengan penuh kepedulian.</p>
+                            </div>
+
+                            <div class="bg-green-100 p-4 rounded-2xl border border-green-300 text-center font-bold text-green-900">
+                                🎉 Hebat! Kamu sudah mempelajari seluruh materi Ayo Menanam!
+                                <div class="mt-3">
+                                    <button onclick="finishMateriAndGoToEval()" class="bg-green-600 hover:bg-green-700 text-white font-extrabold py-3 px-6 rounded-2xl text-xs md:text-sm font-fun shadow-lg transition">
+                                        🎮 LANJUT KE EVALUASI 50 SOAL
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        ];
+
+        function openMateri() {
+            playTone('click');
+            hideAllScreens();
+            currentMateriIndex = 0;
+            renderMateriSlide();
+            document.getElementById('screen-materi').classList.remove('hidden');
+        }
+
+        function renderMateriSlide() {
+            const data = materiData[currentMateriIndex];
+            document.getElementById('materi-badge').innerText = data.badge;
+            document.getElementById('materi-title').innerText = data.title;
+            document.getElementById('materi-content-box').innerHTML = data.render();
+            document.getElementById('materi-step-indicator').innerText = `${currentMateriIndex + 1} / ${materiData.length}`;
+
+            document.getElementById('btn-prev-materi').disabled = (currentMateriIndex === 0);
+            document.getElementById('btn-prev-materi').style.opacity = (currentMateriIndex === 0) ? "0.5" : "1";
+
+            if (currentMateriIndex === materiData.length - 1) {
+                document.getElementById('btn-next-materi').innerText = "Selesai & Evaluasi 🚀";
+            } else {
+                document.getElementById('btn-next-materi').innerText = "Selanjutnya ➡️";
+            }
+
+            speakText(data.title);
+        }
+
+        function nextMateri() {
+            playTone('click');
+            if (currentMateriIndex < materiData.length - 1) {
+                currentMateriIndex++;
+                renderMateriSlide();
+            } else {
+                finishMateriAndGoToEval();
+            }
+        }
+
+        function prevMateri() {
+            playTone('click');
+            if (currentMateriIndex > 0) {
+                currentMateriIndex--;
+                renderMateriSlide();
+            }
+        }
+
+        function finishMateriAndGoToEval() {
+            gameState.materiCompleted = true;
+            gameState.badges.sahabat = true;
+            saveState();
+            openEvaluasi();
+        }
+
+        function checkSeedChoice(isCorrect, msg) {
+            const box = document.getElementById('seed-feedback');
+            box.classList.remove('hidden');
+            if (isCorrect) {
+                playTone('correct');
+                box.className = "text-xs font-bold p-3 rounded-xl text-center bg-emerald-100 text-emerald-900 border border-emerald-300";
+                box.innerText = `✅ ${msg}`;
+                speakText("Benar! Benih bersih dan utuh adalah pilihan terbaik.");
+                gameState.badges.sampah = true;
+                saveState();
+            } else {
+                playTone('wrong');
+                box.className = "text-xs font-bold p-3 rounded-xl text-center bg-rose-100 text-rose-900 border border-rose-300";
+                box.innerText = `❌ ${msg}`;
+                speakText("Kurang tepat. Coba pilih benih yang bersih.");
+            }
+        }
+
+        function checkWaterChoice(isCorrect) {
+            const box = document.getElementById('water-mini-feedback');
+            box.classList.remove('hidden');
+            if (isCorrect) {
+                playTone('correct');
+                box.className = "text-xs font-bold p-2.5 rounded-xl text-center bg-emerald-100 text-emerald-900 border border-emerald-300";
+                box.innerText = "✅ Tepat Sekali! Tanaman membutuhkan air, cahaya matahari, dan media tanam yang cukup!";
+                speakText("Tepat sekali!");
+                gameState.badges.air = true;
+                gameState.badges.cahaya = true;
+                saveState();
+            } else {
+                playTone('click');
+                box.className = "text-xs font-bold p-2.5 rounded-xl text-center bg-amber-100 text-amber-900 border border-amber-300";
+                box.innerText = "💡 Hampir benar, tetapi poin D (Semua Benar) adalah jawaban paling lengkap!";
+            }
+        }
+
+        // ==========================================
+        // 4. 50 SOAL EVALUASI FULL BANK
+        // ==========================================
+        const questionBank = [
+            // 20 MUDAH (🟢)
+            { level: "🟢 MUDAH", q: "Segala sesuatu yang ada di sekitar manusia dan mempengaruhi kehidupannya disebut...", options: ["A. Lingkungan", "B. Pabrik", "C. Angkasa", "D. Kendaraan"], correct: 0, exp: "Lingkungan adalah ruang tempat hidup makhluk hidup beserta ketersediaan unsurnya." },
+            { level: "🟢 MUDAH", q: "Berikut ini yang termasuk contoh sampah organik dari sisa kantin sekolah adalah...", options: ["A. Botol plastik", "B. Kulit pisang", "C. Kaleng minuman", "D. Sedotan plastik"], correct: 1, exp: "Kulit pisang berasal dari bahan alam organik yang mudah terurai oleh mikroorganisme." },
+            { level: "🟢 MUDAH", q: "Sampah yang sulit terurai dan butuh waktu sangat lama di dalam tanah disebut...", options: ["A. Sampah organik", "B. Sampah anorganik", "C. Sampah dedaunan", "D. Pupuk kompos"], correct: 1, exp: "Sampah anorganik seperti plastik dan kaca tidak mudah diuraikan mikroba tanah." },
+            { level: "🟢 MUDAH", q: "Pupuk alami yang dihasilkan dari pengolahan sampah organik dedaunan dinamakan...", options: ["A. Pupuk kimia", "B. Pupuk kompos", "C. Pestisida sintetis", "D. Garam dapur"], correct: 1, exp: "Kompos adalah pupuk alami hasil pembusukan bahan organik." },
+            { level: "🟢 MUDAH", q: "Kebun yang ditanami sayuran bergizi di lingkungan sekolah untuk konsumsi sehat disebut...", options: ["A. Kebun gizi sekolah", "B. Lapangan bola", "C. Kebun bunga hias", "D. Hutan lindung"], correct: 0, exp: "Kebun gizi bertujuan menyediakan bahan pangan kaya nutrisi bagi warga sekolah." },
+            { level: "🟢 MUDAH", q: "Sayuran hijau yang kaya zat besi untuk mencegah anemia adalah...", options: ["A. Cabai merah", "B. Kangkung & Bayam", "C. Bawang putih", "D. Kentang goreng"], correct: 1, exp: "Kangkung dan bayam kaya zat besi dan serat yang sehat bagi tubuh." },
+            { level: "🟢 MUDAH", q: "Jahe dan Kunyit dikelompokkan sebagai jenis tanaman...", options: ["A. Biji-bijian", "B. Rimpang", "C. Buah besar", "D. Pohon kayu"], correct: 1, exp: "Jahe dan kunyit tumbuh membesar di dalam tanah sebagai rimpang (rhizoma)." },
+            { level: "🟢 MUDAH", q: "Ciri benih sayuran yang baik dan sehat untuk ditanam adalah...", options: ["A. Berbusuk dan lembek", "B. Berlubang dimakan ulat", "C. Utuh, padat, dan tidak berjamur", "D. Berwarna hitam pekat busuk"], correct: 2, exp: "Benih sehat harus utuh, bebas penyakit, dan padat berisi." },
+            { level: "🟢 MUDAH", q: "Langkah awal sebelum memasukkan benih ke dalam wadah adalah menyiapkan...", options: ["A. Media tanam subur", "B. Minyak goreng", "C. Air es", "D. Cat warna"], correct: 0, exp: "Media tanam (tanah + kompos + sekam) adalah tempat akar menyerap nutrisi." },
+            { level: "🟢 MUDAH", q: "Air sangat dibutuhkan benih tanaman pada masa awal pertumbuhan untuk memicu proses...", options: ["A. Fotosintesis", "B. Perkecambahan", "C. Pembuahan", "D. Gugur daun"], correct: 1, exp: "Air menyerap ke benih untuk mengaktifkan enzim perkecambahan." },
+            { level: "🟢 MUDAH", q: "Cahaya matahari dimanfaatkan oleh daun hijau tanaman untuk proses...", options: ["A. Fotosintesis", "B. Pernapasan dada", "C. Pengendapan air", "D. Pembekuan es"], correct: 0, exp: "Fotosintesis adalah proses tumbuhan hijau memasak makanan dengan bantuan sinar matahari." },
+            { level: "🟢 MUDAH", q: "Jika tanaman menyerap terlalu banyak air hingga tanah sangat banjir, maka akar akan...", options: ["A. Bertambah kokoh", "B. Membusuk dan mati", "C. Berbuah manis", "D. Berwarna ungu"], correct: 1, exp: "Air berlebih menutupi rongga udara tanah sehingga akar kehabisan oksigen dan membusuk." },
+            { level: "🟢 MUDAH", q: "Menyiram tanaman sebaiknya dilakukan secara teratur pada waktu...", options: ["A. Siang terik jam 12", "B. Pagi atau sore hari", "C. Tengah malam", "D. Tidak perlu disiram"], correct: 1, exp: "Menyiram pagi/sore mencegah penguapan ekstrem akibat panas matahari." },
+            { level: "🟢 MUDAH", q: "Rumput liar pengganggu yang tumbuh di sekitar tanaman utama dinamakan...", options: ["A. Kompos", "B. Gulma", "C. Rimpang", "D. Kecambah"], correct: 1, exp: "Gulma mengambil nutrisi tanah yang seharusnya diserap oleh tanaman utama." },
+            { level: "🟢 MUDAH", q: "Membuang sisa makanan buah ke tempat sampah organik merupakan bentuk sikap...", options: ["A. Acuh tak acuh", "B. Peduli lingkungan", "C. Boros", "D. Sombong"], correct: 1, exp: "Memilah sampah menunjukkan rasa kepedulian terhadap kebersihan bumi." },
+            { level: "🟢 MUDAH", q: "Sikap merawat tanaman jadwal piket tanpa harus ditegur guru merupakan contoh karakter...", options: ["A. Malas", "B. Mandiri & Bertanggung Jawab", "C. Terpaksa", "D. Penakut"], correct: 1, exp: "Melakukan kewajiban atas kesadaran diri adalah bentuk mandiri dan bertanggung jawab." },
+            { level: "🟢 MUDAH", q: "Bekerja sama bersama teman-teman merapikan kebun gizi sekolah adalah penerapan nilai...", options: ["A. Egois", "B. Gotong Royong", "C. Individualis", "D. Pertengkaran"], correct: 1, exp: "Gotong royong adalah pengamalan Pancasila untuk menyelesaikan pekerjaan bersama." },
+            { level: "🟢 MUDAH", q: "Benih kangkung dan bayam yang berukuran kecil sebaiknya ditanam di kedalaman...", options: ["A. Dangkal (0.5 - 2 cm)", "B. 10 meter di bawah tanah", "C. Tanpa ditutup tanah", "D. Dihancurkan dulu"], correct: 0, exp: "Biji kecil butuh kedalaman dangkal agar tunas cepat menembus permukaan tanah." },
+            { level: "🟢 MUDAH", q: "Wadah bekas botol plastik minuman yang dibolongin bawahnya dapat dimanfaatkan sebagai...", options: ["A. Pot tanaman ramah lingkungan", "B. Mainan berbahaya", "C. Tempat sampah basah", "D. Pembakar sampah"], correct: 0, exp: "Mendaur ulang botol menjadi pot tanaman mengurangi sampah plastik di sekolah." },
+            { level: "🟢 MUDAH", q: "Manfaat utama mengonsumsi sayuran segar dari kebun gizi sekolah adalah...", options: ["A. Tubuh menjadi sehat & bergizi", "B. Gigi menjadi cepat sakit", "C. Tubuh terasa lemas", "D. Mengantuk di kelas"], correct: 0, exp: "Sayur kaya vitamin dan mineral yang menjaga imunitas tubuh siswa." },
+
+            // 20 SEDANG (🟡)
+            { level: "🟡 SEDANG", q: "Pernyataan BENAR atau SALAH: 'Sampah plastik kantong kresek dapat membusuk menjadi pupuk tanah dalam waktu 2 hari.'", options: ["A. BENAR", "B. SALAH", "C. RAGU-RAGU", "D. BISA JADI"], correct: 1, exp: "SALAH. Plastik butuh ratusan tahun untuk dapat terurai di tanah." },
+            { level: "🟡 SEDANG", q: "Mengapa sekam padi atau sabut kelapa dicampurkan ke dalam racikan media tanah pot?", options: ["A. Agar media tanah gembur & berpori", "B. Supaya tanah menjadi keras padat", "C. Sebagai hiasan warna-warni", "D. Mencegah air masuk"], correct: 0, exp: "Sekam menjaga porositas tanah agar air dan udara dapat mengalir lancar ke akar." },
+            { level: "🟡 SEDANG", q: "Apa yang terjadi jika biji bayam ditanam terlalu dalam (kedalaman 10 cm)?", options: ["A. Tunas tumbuh super cepat", "B. Tunas kehabisan cadangan makanan sebelum mencapai permukaan", "C. Biji berubah menjadi buah mangga", "D. Biji tidak membutuhkan air"], correct: 1, exp: "Biji kecil punya cadangan energi terbatas; jika terlalu dalam, tunas mati di dalam tanah." },
+            { level: "🟡 SEDANG", q: "Sita menemukan sisa kulit jeruk di kelas. Tindakan paling tepat sesuai prinsip peduli lingkungan adalah...", options: ["A. Lempar ke laci meja", "B. Masukkan ke tong sampah organik untuk bahan kompos", "C. Dibuang ke dalam selokan", "D. Dibakar di tengah ruang kelas"], correct: 1, exp: "Kulit buah adalah sampah organik yang cocok diolah menjadi kompos." },
+            { level: "🟡 SEDANG", q: "Perbedaan utama cara menanam benih biji kangkung dengan rimpang kunyit adalah...", options: ["A. Biji kangkung ditanam dangkal, rimpang kunyit ditanam menyesuaikan ukuran rimpangnya", "B. Kunyit ditanam di atap genteng", "C. Kangkung disiram minyak goreng", "D. Tidak ada perbedaan sama sekali"], correct: 0, exp: "Ukuran benih menentukan kedalaman penanaman agar organ bertunas dapat berkembang ideal." },
+            { level: "🟡 SEDANG", q: "Tanaman pot yang diletakkan di dalam kamar gelap tanpa cahaya matahari selama seminggu akan mengalami...", options: ["A. Daun tumbuh sangat hijau pekat", "B. Daun pucat kekuningan & batang pucat memanjang (etiolasi)", "C. Berbuah lebat seketika", "D. Batang berubah menjadi batu"], correct: 1, exp: "Tanpa cahaya, klorofil tidak terbentuk sehingga daun pucat dan batang lemah." },
+            { level: "🟡 SEDANG", q: "Komposisi racikan media tanam pot Kebun Gizi Sekolah yang ideal adalah campuran dari...", options: ["A. Tanah subur, pupuk kompos organik, dan sekam", "B. Pasir pantai, garam, dan plastik", "C. Kerikil tajam dan cat warna", "D. Sampah kaleng dan busa"], correct: 0, exp: "Tanah, kompos, dan sekam memberi nutrisi seimbang dan kelembapan yang pas." },
+            { level: "🟡 SEDANG", q: "Roni lupa menyiram tanaman kangkung kelompoknya selama 4 hari saat cuaca terik. Kondisi fisik tanaman kangkung menjadi...", options: ["A. Layu dan daun mengering", "B. Makin segar bugar", "C. Berbunga warna-warni", "D. Akar bertambah tebal"], correct: 0, exp: "Kekurangan air menyebabkan sel tanaman kehilangan tekanan turgor sehingga layu." },
+            { level: "🟡 SEDANG", q: "Manfaat utama kegiatan piket menyiram tanaman secara bergiliran dalam kelompok adalah...", options: ["A. Membagi tugas agar ringan & melatih gotong royong", "B. Agar bisa membolos jam masuk kelas", "C. Menuduh teman yang tidak bekerja", "D. Menghabiskan pasokan air sekolah"], correct: 0, exp: "Piket bergiliran melatih tanggung jawab dan kerja sama kelompok." },
+            { level: "🟡 SEDANG", q: "Mengapa kita tidak boleh membuang minyak goreng bekas ke dalam tanah media tanam?", options: ["A. Minyak menutup pori tanah dan merusak akar tanaman", "B. Minyak membuat tanaman tumbuh cepat", "C. Minyak mengganti fungsi air", "D. Minyak disukai oleh cacing"], correct: 0, exp: "Miyak menyumbat saluran napas tanah dan akar sehingga tanaman tercekik." },
+            { level: "🟡 SEDANG", q: "Tanaman jahe dipanen pada bagian...", options: ["A. Bunga", "B. Rimpang di dalam tanah", "C. Daun paling atas", "D. Duri batang"], correct: 1, exp: "Jahe dimanfaatkan bagian rimpangnya yang kaya khasiat obat di dalam tanah." },
+            { level: "🟡 SEDANG", q: "Perilaku yang mencerminkan sikap MANDIRI dalam merawat tanaman adalah...", options: ["A. Langsung menyiram tanaman secara rutin tanpa harus disuruh guru", "B. Menyiram tanaman jika diancam hukuman", "C. Menyuruh teman mengerjakan tugas piketnya", "D. Membiarkan tanaman sampai layu"], correct: 0, exp: "Kemandirian tercermin saat siswa berinisiatif merawat tanpa paksaan." },
+            { level: "🟡 SEDANG", q: "Alat menyiram tanaman yang memancarkan air secara lembut agar benih kecil tidak hancur disebut...", options: ["A. Gembor / Sprinkler", "B. Ember raksasa", "C. Selang pemadam kebakaran", "D. Gayung kamar mandi"], correct: 0, exp: "Gembor menyebarkan percikan air halus sehingga media tanam tidak tergerus." },
+            { level: "🟡 SEDANG", q: "Salah satu ciri pupuk kompos buatan sendiri yang sudah matang dan siap dipakai adalah...", options: ["A. Berwarna kehitaman seperti tanah & tidak berbau menyengat", "B. Berbau busuk menyengat", "C. Panas membakar tangan", "D. Masih berbentuk utuh daun segar"], correct: 0, exp: "Kompos matang sudah remah, rekah, kehitaman, dan beraroma harum tanah." },
+            { level: "🟡 SEDANG", q: "Mengapa pembersihan gulma di sekitar tanaman kangkung harus dilakukan secara rutin?", options: ["A. Agar gulma tidak mencuri air dan zat hara tanaman kangkung", "B. Supaya kebun terlihat sepi", "C. Agar gulma berubah jadi bunga", "D. Tidak ada gunanya"], correct: 0, exp: "Gulma merupakan pesaing tanaman utama dalam menyerap nutrisi tanah." },
+            { level: "🟡 SEDANG", q: "Apa dampak positif dari program Kebun Gizi Sekolah terhadap kantin sekolah?", options: ["A. Menyediakan pasokan sayuran organik sehat untuk menu makanan sekolah", "B. Menjual makanan instan berbahaya", "C. Menambah sampah plastik di kantin", "D. Menutup fasilitas kantin"], correct: 0, exp: "Hasil panen kebun gizi dapat diolah menjadi menu makanan bernutrisi di kantin." },
+            { level: "🟡 SEDANG", q: "Pernyataan: 'Semakin banyak pupuk kimia buatan yang dimasukkan, semakin baik tanah untuk jangka panjang.' Pernyataan ini...", options: ["A. BENAR", "B. SALAH", "C. BISA JADI", "D. SELALU TEBAT"], correct: 1, exp: "SALAH. Pupuk kimia berlebihan merusak struktur tanah alami. Kompos organik lebih ramah lingkungan." },
+            { level: "🟡 SEDANG", q: "Kegiatan memanfaatkan kembali barang bekas botol air mineral menjadi pot bibit disebut...", options: ["A. Reduce", "B. Reuse / Recycle", "C. Replace", "D. Remove"], correct: 1, exp: "Reuse/Recycle adalah mendaur ulang bahan bekas menjadi barang berdaya guna." },
+            { level: "🟡 SEDANG", q: "Proses awal ketika biji membesar, kulit biji pecah, dan keluar calon akar kecil disebut...", options: ["A. Penguapan", "B. Perkecambahan (Sprouting)", "C. Pemangkasan", "D. Penyerbukan"], correct: 1, exp: "Perkecambahan adalah awal mula kemunculan tunas muda dari benih." },
+            { level: "🟡 SEDANG", q: "Mengapa siswa kelas 6 perlu diajarkan program Aksi Peduli Lingkungan Kebun Gizi?", options: ["A. Agar melatih kepedulian lingkungan & keterampilan hidup mandiri", "B. Hanya untuk menghabiskan waktu jam belajar", "C. Supaya baju sekolah kotor", "D. Agar nilai ujian menjadi nol"], correct: 0, exp: "Program kokurikuler membentuk karakter peduli lingkungan dan kemandirian siswa." },
+
+            // 10 HOTS (🔴)
+            { level: "🔴 HOTS", q: "Di SD Pertiwi, kelompok Budi menanam benih bayam di pot A dengan menutupnya tanah tebal 8 cm. Kelompok Ani menanam di pot B dengan menutupnya tanah tipis 1 cm. Setelah 5 hari, pot B bertunas subur sedangkan pot A belum bertunas. Analisis penyebabnya adalah...", options: ["A. Pot A kekurangan air saja", "B. Tunas di pot A kehabisan energi cadangan biji sebelum mampu menembus lapisan tanah 8 cm yang terlalu tebal", "C. Pot B ditiup angin", "D. Pot B diberi air es"], correct: 1, exp: "HOTS Analisis: Biji bayam sangat kecil dan punya energi terbatas. Lapisan tanah 8 cm terlalu tebal untuk ditembus tunas muda." },
+            { level: "🔴 HOTS", q: "Sekolah menghasilkan 5 kg sampah sisa buah/sayur kantin setiap hari. Solusi paling inovatif dan ramah lingkungan sesuai tema Fase C adalah...", options: ["A. Membakar sampah sisa kantin tiap sore", "B. Mengolahnya di tong komposter menjadi pupuk organik untuk Kebun Gizi Sekolah", "C. Menimbunnya di selokan air luar sekolah", "D. Membuangnya ke kantong plastik hitam"], correct: 1, exp: "HOTS Solusi: Mengolah sampah kantin menjadi kompos menciptakan siklus daur ulang energi terbarukan di sekolah." },
+            { level: "🔴 HOTS", q: "Suatu hari cuaca hujan deras selama 3 hari berturut-turut. Pot tanaman jahe milik Doni tidak memiliki lubang drainase di bagian bawahnya. Prediksi yang akan terjadi pada rimpang jahe Doni adalah...", options: ["A. Rimpang tumbuh 10 kali lebih cepat", "B. Air menggenang, kondisi tanah anaerobik, dan rimpang jahe akan membusuk", "C. Rimpang berubah menjadi batu", "D. Tanaman tidak terpengaruh"], correct: 1, exp: "HOTS Evaluasi: Lubang bawah pot penting untuk mengalirkan kelebihan air hujan agar akar tidak terendam dan membusuk." },
+            { level: "🔴 HOTS", q: "Edo menemukan tanaman bayam milik kelompok lain terbalik jatuh tertiup angin hingga tanahnya berhamburan. Sikap Edo yang mencerminkan profil pelajar Pancasila (Peduli & Tanggung Jawab Warga Kebun) adalah...", options: ["A. Membiarkannya dan menertawakannya", "B. Segera mendirikan pot, merapikan tanahnya, dan menyiramnya dengan penuh kepedulian", "C. Menuduh teman lain yang menjatuhkan", "D. Membuang tanaman tersebut ke sampah"], correct: 1, exp: "HOTS Aplikasi Karakter: Peduli lingkungan mencakup menjaga tanaman fasilitas bersama tanpa membeda-bedakan milik siapa." },
+            { level: "🔴 HOTS", q: "Manakah urutan siklus daur ulang organik di sekolah yang paling tepat?", options: ["A. Sampah Kantin Organik ➔ Komposter ➔ Pupuk Kompos ➔ Kebun Gizi ➔ Panen Sayur Sehat", "B. Kebun Gizi ➔ Sampah Plastik ➔ Dibakar ➔ Pupuk Kompos", "C. Panen Sayur ➔ Sampah Anorganik ➔ Selokan ➔ Komposter", "D. Pupuk Kompos ➔ Sampah Plastik ➔ Kebun Gizi"], correct: 0, exp: "HOTS Urutan Logis: Siklus menutup rantai nutrisi dari sampah kembali menjadi bahan pangan sehat." },
+            { level: "🔴 HOTS", q: "Mengapa penanaman tanaman rimpang seperti Jahe butuh struktur tanah gembur bercampur sekam?", options: ["A. Agar rimpang jahe mudah membesar dan berkembang di dalam tanah tanpa tertekan tanah keras", "B. Supaya warna jahe menjadi merah", "C. Agar jahe bisa terbang", "D. Supaya tanah berbau wangi parfum"], correct: 0, exp: "HOTS Biologi Tumbuhan: Rimpang berkembang membesar di dalam tanah. Tanah gembur memberi ruang pemekaran rimpang secara optimal." },
+            { level: "🔴 HOTS", q: "Apabila sebuah tanaman kangkung kekurangan sinar matahari tetapi diberi air melimpah, fenomena yang terjadi adalah...", options: ["A. Fotosintesis maksimal", "B. Pertumbuhan etiolasi (batang tinggi kurus pucat dan mudah roboh)", "C. Daun menjadi tebal dan berbuah", "D. Tanaman berubah jadi hijau pekat"], correct: 1, exp: "HOTS Fisiologi Tumbuhan: Kurang sinar matahari memicu respon etiolasi, tumbuhan memanjang mencari cahaya tapi batangnya sangat lemah." },
+            { level: "🔴 HOTS", q: "Bagaimana hubungan antara nilai Karakter MANDIRI dengan keberhasilan Kebun Gizi Sekolah?", options: ["A. Siswa mandiri merawat tanaman secara konsisten sehingga tanaman tumbuh subur tanpa selalu diawasi guru", "B. Siswa mandiri bekerja sendiri tanpa mau dibantu teman", "C. Mandiri berarti membeli sayur di supermarket", "D. Tidak ada hubungannya"], correct: 0, exp: "HOTS Karakter & Hasil: Konsistensi perawatan mandiri adalah kunci utama kesuburan tanaman hingga masa panen." },
+            { level: "🔴 HOTS", q: "Apa dampak jangka panjang bagi lingkungan sekolah jika seluruh siswa membiasakan memilah sampah organik dan anorganik?", options: ["A. Lingkungan sekolah bersih, tanah subur, bebas banjir sampah, dan tercipta budaya peduli lingkungan", "B. Sekolah menjadi tempat sampah umum", "C. Jumlah sampah plastik bertambah banyak", "D. Siswa menjadi cepat lelah"], correct: 0, exp: "HOTS Dampak Lingkungan: Pembiasaan memilah sampah menciptakan ekosistem sekolah yang sehat dan berkelanjutan." },
+            { level: "🔴 HOTS", q: "Mengapa penggunaan kompos dari sampah daun lebih disarankan dibandingkan pupuk kimia sintetis berlebihan di Kebun Gizi Sekolah?", options: ["A. Kompos memperbaiki struktur tanah, aman bagi konsumsi makanan, dan memanfaatkan limbah sekitar", "B. Kompos harganya jauh lebih mahal", "C. Kompos mengandung bahan beracun", "D. Pupuk kimia lebih alami daripada kompos"], correct: 0, exp: "HOTS Keberlanjutan: Kompos menambah bahan organik tanah jangka panjang dan aman bagi bahan makanan sehat sekolah." }
+        ];
+
+        // ==========================================
+        // 5. SISTEM EVALUASI & KOREKSI OTOMATIS
+        // ==========================================
+        let currentQuestions = [];
+        let currentQIndex = 0;
+        let scoreCorrect = 0;
+        let isAnsweredCurrent = false;
+
+        function openEvaluasiWithCheck() {
+            if (!gameState.materiCompleted) {
+                speakText("Saran: Pelajari materi terlebih dahulu sebelum mengerjakan evaluasi.");
+            }
+            openEvaluasi();
+        }
+
+        function openEvaluasi() {
+            playTone('click');
+            hideAllScreens();
+            // Shuffle question bank copy
+            currentQuestions = [...questionBank].sort(() => Math.random() - 0.5);
+            currentQIndex = 0;
+            scoreCorrect = 0;
+            isAnsweredCurrent = false;
+
+            document.getElementById('screen-evaluasi').classList.remove('hidden');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            isAnsweredCurrent = false;
+            const qData = currentQuestions[currentQIndex];
+            const total = currentQuestions.length;
+
+            document.getElementById('eval-difficulty-badge').innerText = qData.level;
+            if (qData.level.includes("MUDAH")) {
+                document.getElementById('eval-difficulty-badge').className = "text-xs font-extrabold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full border border-emerald-300";
+            } else if (qData.level.includes("SEDANG")) {
+                document.getElementById('eval-difficulty-badge').className = "text-xs font-extrabold bg-amber-100 text-amber-800 px-3 py-1 rounded-full border border-amber-300";
+            } else {
+                document.getElementById('eval-difficulty-badge').className = "text-xs font-extrabold bg-rose-100 text-rose-800 px-3 py-1 rounded-full border border-rose-300";
+            }
+
+            document.getElementById('eval-question-number').innerText = `SOAL ${currentQIndex + 1} / ${total}`;
+            const percent = Math.round(((currentQIndex + 1) / total) * 100);
+            document.getElementById('eval-progress-percent').innerText = `${percent}% Selesai`;
+            document.getElementById('eval-progress-bar').style.width = `${percent}%`;
+
+            document.getElementById('eval-question-text').innerText = `${currentQIndex + 1}. ${qData.q}`;
+
+            // Hide feedback box
+            document.getElementById('eval-feedback-box').classList.add('hidden');
+
+            // Render option buttons
+            const optionsBox = document.getElementById('eval-options-container');
+            optionsBox.innerHTML = '';
+
+            qData.options.forEach((optText, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "eval-opt-btn w-full text-left p-4 bg-white hover:bg-blue-50 border-2 border-slate-200 hover:border-blue-400 rounded-2xl text-xs md:text-sm font-semibold text-slate-800 transition flex items-center justify-between shadow-sm active:scale-[0.99]";
+                btn.innerHTML = `<span>${optText}</span> <span class="opt-icon text-lg">⚪</span>`;
+                btn.onclick = () => selectAnswer(idx);
+                optionsBox.appendChild(btn);
+            });
+
+            // Milestone notifications
+            checkMilestones(currentQIndex + 1);
+        }
+
+        function checkMilestones(num) {
+            let msg = "";
+            if (num === 10) msg = "⭐ Kamu mulai menjadi Penjaga Kebun!";
+            else if (num === 20) msg = "⭐ Hebat! Teruskan perjuanganmu!";
+            else if (num === 30) msg = "⭐ Tanamanmu hampir tumbuh subur!";
+            else if (num === 40) msg = "⭐ Sedikit lagi menuju panen raya!";
+
+            if (msg) speakText(msg);
+        }
+
+        function selectAnswer(selectedIndex) {
+            if (isAnsweredCurrent) return;
+            isAnsweredCurrent = true;
+
+            const qData = currentQuestions[currentQIndex];
+            const buttons = document.querySelectorAll('.eval-opt-btn');
+
+            buttons.forEach(btn => btn.disabled = true);
+
+            const feedbackBox = document.getElementById('eval-feedback-box');
+            const header = document.getElementById('eval-feedback-header');
+            const explain = document.getElementById('eval-feedback-explain');
+
+            feedbackBox.classList.remove('hidden');
+
+            if (selectedIndex === qData.correct) {
+                playTone('correct');
+                scoreCorrect++;
+                buttons[selectedIndex].className = "w-full text-left p-4 bg-emerald-100 border-2 border-emerald-500 rounded-2xl text-xs md:text-sm font-bold text-emerald-900 flex items-center justify-between shadow";
+                buttons[selectedIndex].querySelector('.opt-icon').innerText = "✅";
+
+                header.innerHTML = "🎉 BENAR!";
+                header.className = "font-extrabold text-base text-emerald-700 flex items-center gap-2 font-fun";
+                explain.innerText = `Hebat! Jawaban kamu tepat. 🌱 ${qData.exp}`;
+
+                speakText("Benar! Hebat!");
+            } else {
+                playTone('wrong');
+                buttons[selectedIndex].className = "w-full text-left p-4 bg-rose-100 border-2 border-rose-500 rounded-2xl text-xs md:text-sm font-bold text-rose-900 flex items-center justify-between shadow";
+                buttons[selectedIndex].querySelector('.opt-icon').innerText = "❌";
+
+                // Highlight correct option
+                buttons[qData.correct].className = "w-full text-left p-4 bg-emerald-50 border-2 border-emerald-400 rounded-2xl text-xs md:text-sm font-bold text-emerald-800 flex items-center justify-between";
+                buttons[qData.correct].querySelector('.opt-icon').innerText = "💡";
+
+                header.innerHTML = "❌ Jawaban belum tepat.";
+                header.className = "font-extrabold text-base text-rose-700 flex items-center gap-2 font-fun";
+                explain.innerText = `💡 Coba pahami lagi: ${qData.exp}`;
+
+                speakText("Jawaban belum tepat. Yuk, belajar lagi!");
+            }
+        }
+
+        function nextQuestion() {
+            playTone('click');
+            currentQIndex++;
+            if (currentQIndex < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                finishEvaluasi();
+            }
+        }
+
+        function confirmExitEvaluasi() {
+            if (confirm("Apakah kamu yakin ingin keluar? Progress evaluasi yang sedang berjalan dapat hilang.")) {
+                goToMenu();
+            }
+        }
+
+        // ==========================================
+        // 6. HASIL EVALUASI & SERTIFIKAT GENERATION
+        // ==========================================
+        function finishEvaluasi() {
+            playTone('correct');
+            const total = currentQuestions.length;
+            const wrong = total - scoreCorrect;
+            const score = Math.round((scoreCorrect / total) * 100);
+
+            gameState.evalScore = score;
+            gameState.evalCorrect = scoreCorrect;
+            gameState.evalCompleted = true;
+            gameState.badges.penjaga = true;
+            saveState();
+
+            // Render result screen
+            hideAllScreens();
+            document.getElementById('screen-hasil').classList.remove('hidden');
+
+            document.getElementById('result-name').innerText = gameState.studentName;
+            document.getElementById('result-school').innerText = gameState.schoolName;
+            document.getElementById('result-correct').innerText = `${scoreCorrect} Soal`;
+            document.getElementById('result-wrong').innerText = `${wrong} Soal`;
+            document.getElementById('result-score').innerText = `${score} Poin`;
+
+            let predicate = "";
+            let motivation = "";
+
+            if (score >= 90) {
+                predicate = "🌟 Sangat Baik";
+                motivation = "Luar biasa! Kamu telah menjadi Pahlawan Kebun Gizi Sekolah sejati! Pemahamanmu sangat mendalam. 🌱";
+            } else if (score >= 80) {
+                predicate = "⭐ Baik";
+                motivation = "Hebat! Kamu sudah memahami sebagian besar materi kebun dan peduli lingkungan dengan sangat baik. 🌿";
+            } else if (score >= 70) {
+                predicate = "👍 Cukup";
+                motivation = "Bagus! Kamu sudah mengerti dasar-dasar menanam. Yuk tingkatkan lagi belajarmu! 💪";
+            } else {
+                predicate = "🌱 Perlu Belajar Lagi";
+                motivation = "Tidak apa-apa. Terus belajar dan coba lagi. Setiap kesalahan adalah kesempatan untuk belajar! 💪🌱";
+            }
+
+            document.getElementById('result-predicate').innerText = predicate;
+            document.getElementById('result-motivation-box').innerText = motivation;
+
+            speakText(`Selamat! Kamu menyelesaikan evaluasi dengan nilai ${score}. Predikat kamu ${predicate}.`);
+        }
+
+        function repeatEvaluasi() {
+            openEvaluasi();
+        }
+
+        function openSertifikatWithCheck() {
+            if (!gameState.evalCompleted) {
+                alert("Sertifikat baru terbuka setelah kamu menyelesaikan 50 Soal Evaluasi ya! 🌱");
+                openEvaluasi();
+            } else {
+                openSertifikat();
+            }
+        }
+
+        function openSertifikat() {
+            playTone('click');
+            hideAllScreens();
+            document.getElementById('screen-sertifikat').classList.remove('hidden');
+
+            document.getElementById('cert-student-name').innerText = gameState.studentName || "Siswa Pembelajar";
+            document.getElementById('cert-school-name').innerText = gameState.schoolName || "SDN Kebun Sehat";
+            document.getElementById('cert-score-val').innerText = gameState.evalScore;
+
+            let predicate = "🌟 Sangat Baik";
+            if (gameState.evalScore < 70) predicate = "🌱 Perlu Belajar Lagi";
+            else if (gameState.evalScore < 80) predicate = "👍 Cukup";
+            else if (gameState.evalScore < 90) predicate = "⭐ Baik";
+
+            document.getElementById('cert-predicate-val').innerText = predicate;
+
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('cert-date-display').innerText = `Tanggal: ${now.toLocaleDateString('id-ID', options)}`;
+
+            speakText("Selamat atas pencapaian sertifikat Kebun Gizi Sekolah!");
+        }
+
+        // ==========================================
+        // 7. PAPAN PRESTASI / BADGES BOARD
+        // ==========================================
+        function openBadges() {
+            playTone('click');
+            hideAllScreens();
+            document.getElementById('screen-badges').classList.remove('hidden');
+
+            const b = gameState.badges;
+            updateBadgeUI(1, b.sahabat);
+            updateBadgeUI(2, b.air);
+            updateBadgeUI(3, b.cahaya);
+            updateBadgeUI(4, b.sampah);
+            updateBadgeUI(5, b.penjaga);
+        }
+
+        function updateBadgeUI(num, isUnlocked) {
+            const card = document.getElementById(`badge-card-${num}`);
+            const status = document.getElementById(`badge-status-${num}`);
+            if (isUnlocked) {
+                card.className = "bg-emerald-50 p-5 rounded-2xl border-2 border-emerald-400 flex items-center gap-4 shadow-md transition";
+                status.className = "inline-block mt-2 text-[10px] bg-emerald-200 text-emerald-900 px-2.5 py-0.5 rounded-full font-extrabold";
+                status.innerText = "⭐ Terbuka!";
+            } else {
+                card.className = "bg-slate-100 opacity-60 p-5 rounded-2xl border-2 border-slate-300 flex items-center gap-4 transition";
+                status.className = "inline-block mt-2 text-[10px] bg-slate-200 text-slate-600 px-2.5 py-0.5 rounded-full font-bold";
+                status.innerText = "🔒 Terkunci";
+            }
+        }
+
+        // Window Load Handler
+        window.onload = function() {
+            loadSavedState();
+            if (gameState.studentName) {
+                document.getElementById('input-name').value = gameState.studentName;
+                document.getElementById('input-school').value = gameState.schoolName;
+            }
+            updateDashboardUI();
+            console.log("Game Edukasi Ayo Menanam Kokurikuler Kelas 6 Siap Digunakan secara Offline.");
+        };
+    </script>
+</body>
+</html>
